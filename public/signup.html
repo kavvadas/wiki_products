@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOPRODUCTS-ESHOP</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo1.png">
+    <script src="js/caregory.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+</head>
+<body >
+    <header>
+        <div class="header_logo">
+            <img id="logo" src="images/logo2.png" alt="">
+        </div>
+        <nav class="menu">
+            <a href="index.html">Home</a>
+            <a href="" target="_self" id="sign_up_ref">Sign Up</a>
+        </nav>
+    </header>
+    <main>
+        <form action="/signup" method="post" id="sign_up_form" class="sign_up_form" >
+            <fieldset id="personal_info" class="personal_info">
+                <legend>Personal Info</legend>
+                <div class="personal_info_section">
+ 
+
+                    <label class="control_label" for="fname">First name</label>
+
+                    <input class="control_input" type="text" id="fname" name="fname" required>
+                    <div class="message" >*</div>
+                </div>
+                <div class="personal_info_section">
+                    <label class="control_label" for="lname">Last name</label>
+                    <input class="control_input"  type="text" id="lname" name="lname" required>
+                    <div class="message" >*</div>
+                </div>
+                <div class="personal_info_section">
+                    <label class="control_label" for="email">E-mail</label>
+                    <input class="control_input"  type="email" id="email" name="email" onkeyup="validateEmail(this)" required>
+                    <div class="message" >*</div>
+                </div>
+                <div class="personal_info_section">
+                    <label class="control_label" for="phone">Phone number</label>
+                    <input class="control_input"  type="tel" id="phone" name="phone" placeholder="e.g. 6912345678" pattern="[0-9]{10}" required>
+                    <div class="message" >*</div>
+                </div>
+                <div class="personal_info_section">
+                    <label class="control_label" for="city">Address</label>
+                    <div class="input3">
+                        
+                        <input class="control_input1" type="text" id="city" name="city" placeholder="City" autocomplete="on" required>
+                        <div class="message1" >*</div>
+                        <input class="control_input2" type="text" id="zip" name="zip_code" placeholder="Zip Code e.g. 12345" pattern="[0-9]{5}" required>
+                        <div class="message2" >*</div>
+                        <input class="control_input3" type="text" id="country" name="country" placeholder="Country" autocomplete="on" required>
+                        <div class="message3" >*</div>
+                    </div>
+                </div>
+                <div class="personal_info_section">
+                    <label class="control_label" for="birthday">Birthday</label>
+                    <input class="control_input" type="date" id="birthday" name="birthday"  min='1900-01-01' max='2023-01-01' onselect="calculateAge()" required >
+                    <div class="message" >*</div>
+                </div>
+                <div class="personal_info_section">
+                    <label class="control_label" for="gender">Gender</label>
+                    <select class="control_input" name="gender" id="gender" >
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div class="message" >*</div>
+                </div>
+
+            </fieldset>
+            <fieldset id="payment_details" class="payment_details">
+                <legend>Payment Details</legend>
+                
+                    
+                    <div class="payment_details_sec">
+                        <label class="control_label" for="city_pd">Payment Address</label>
+                        <div class="input3">
+                            <input class="control_input1" type="text" id="city_pd" name="city_pd" placeholder="City" autocomplete="on" required>
+                            <div class="message1" >*</div>
+                            <input class="control_input2" type="text" id="zip_pd" name="zip_code_pd" placeholder="Zip Code e.g. 12345" pattern="[0-9]{5}" required>
+                            <div class="message2" >*</div>
+                            <input class="control_input3" type="text" id="country_pd" name="country_pd" placeholder="Country" autocomplete="on" required>
+                            <div class="message3" >*</div>
+                        </div>
+                    </div>
+                    <div class="payment_details_sec" >
+
+                        <select name="wayofpayment" id="wayofpayment">
+                            <option value="payondelivery">Pay on delivery</option>
+                            <option value="creditcard">Credit card</option>
+                        </select>
+                    </div>
+                    <div  id="ccn_details">
+                        <label class="control_label" for="ccn">Credit Card</label>
+                        <div class="input3">
+
+                            <input class="control_input1" type="tel" id="ccn" name="ccn" placeholder="Credit Card Number" maxlength="16" >
+                            <div class="message1" >*</div>
+                            <input class="control_input2" type="text" id="cardholder" name="cardholder" placeholder="CardHolder" >
+                            <div class="message2" >*</div>
+                            <input class="control_input3" type="month" id="expiration" name="expiration"  min='2022-12' >
+                            <div class="message3" >*</div>
+                            <input class="control_input4" type="text" id="cvv" name="cvv" placeholder="CVV" pattern="[0-9]{3}" >
+                            <div class="message4" >*</div>
+                        </div>    
+                    </div>
+                    
+               
+            </fieldset>
+            <fieldset id="user_info" class="user_info">
+                <legend>User Info</legend>
+                <div class="user_info_section">
+                    <label class="control_label" for="username">Username</label>
+                    <input class="control_input" type="text" id="username" name="username" required>
+                    <div class="message" >*</div>
+                </div>
+                <div class="user_info_section">
+                    <label for="password" class="control_label">Password</label>
+                    <input class="control_input" type="password" id="password" name="password" minlength="8" required>
+                    <div class="message" >*</div>
+                </div>
+<!--                 
+                <div class="user_info_section">
+                    <label class="control_label" for="validate_password" id="validate_password_label" >Validate Password</label>
+                    <input class="control_input" type="password" id="validate_password" name="validate_password" minlength="8" 
+                        onkeyup="passwordCheck(this, true)" 
+                        onfocus="passwordCheck(this, true)" required>
+                    <div class="message" >*</div>
+                </div> -->
+                <div class="show_password">
+                    <input type="checkbox" id="show_password" name="show_password" onclick="showPassword()">
+                    <label for="show_password">Show password</label>
+                </div>
+                <p id="check_password" class="check_password"></p>
+            </fieldset>
+
+                <div id="submit">
+                    <button id="sign_up_button" type="submit">Submit</button>
+                </div>
+        </form>
+        <section id="Redirect" class="Redirect">
+            <span id="close" class="close" onclick="hideRedirect()">&times;</span>
+            <h2 id="Redirect_heading" class="Redirect_heading"></h2>
+        </section>
+    </main>
+    <footer>
+        <br>
+        <div class="copyright_ref">
+            <p class="copyright">Copyright @2022 Gkolfo-Georgia Korili, Dimitris Kavvadas.<br> GOPRODUCTS-ESHOP &copy; <img id="footer_logo"  src="images/logo1.png" alt="logo1"></p>
+        </div>
+    </footer>
+    <script src="./js/forms.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "name": "wiki_products",
+  "version": "1.0.0",
+  "description": "WikiProducts webpage",
+  "main": "index.js",
+  "scripts": {
+    "devstart": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kavvadas/wiki_products.git"
+  },
+  "keywords": [
+    "123"
+  ],
+  "author": "Kavvadas Dimitrios",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kavvadas/wiki_products/issues"
+  },
+  "homepage": "https://github.com/kavvadas/wiki_products#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "handlebars": "^4.7.7",
+    "jsdom": "^21.0.0",
+    "mongoose": "^6.8.3",
+    "pug": "^3.0.2",
+    "util": "^0.12.5",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
+}
